@@ -8,6 +8,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
+import android.content.Intent
 
 class HomeActivity : AppCompatActivity() {
 
@@ -34,6 +36,10 @@ class HomeActivity : AppCompatActivity() {
                     replaceFragment(FavoritesFragment())
                     true
                 }
+                R.id.navigation_logout -> {
+                    cerrarSesion()
+                    true
+                }
                 else -> false
             }
         }
@@ -48,5 +54,13 @@ class HomeActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
+    }
+
+    private fun cerrarSesion() {
+        FirebaseAuth.getInstance().signOut()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
 }

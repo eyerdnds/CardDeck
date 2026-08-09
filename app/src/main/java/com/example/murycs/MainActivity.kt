@@ -26,6 +26,7 @@ import com.google.android.libraries.identity.googleid.GoogleIdTokenParsingExcept
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.FacebookAuthProvider
+import com.google.firebase.auth.OAuthProvider
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var credentialManager : CredentialManager
 
     private lateinit var btnGoogle : ImageButton
+    private lateinit var btnTwitter : ImageButton
     private lateinit var btnFacebook : LoginButton
     private lateinit var callbackManager: CallbackManager
 
@@ -69,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         dbHelper = DatabaseHelper(this)
 
         btnGoogle = findViewById(R.id.btnGoogle)
+        btnTwitter = findViewById(R.id.btnTwitter)
         btnFacebook = findViewById(R.id.btnFacebook)
 
         auth = FirebaseAuth.getInstance()
@@ -104,6 +107,9 @@ class MainActivity : AppCompatActivity() {
             iniciarSesionGoogle()
         }
 
+        btnTwitter.setOnClickListener {
+            iniciarSesionTwitter()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -135,6 +141,38 @@ class MainActivity : AppCompatActivity() {
 
         }else{
             Toast.makeText(this,"Datos incorrectos",Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun iniciarSesionTwitter() {
+        val provider = OAuthProvider.newBuilder("twitter.com")
+
+        // 1. Revisar si hay un resultado pendiente
+        val pendingResultTask = auth.pendingAuthResult
+        if (pendingResultTask != null) {
+            pendingResultTask
+                .addOnSuccessListener { authResult ->
+                    // El usuario ya estaba en el flujo
+                    Toast.makeText(this, "Bienvenido ${authResult.user?.displayName}", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+        } else {
+            // 2. No hay resultado pendiente, iniciar el flujo normal
+            auth.startActivityForSignInWithProvider(this, provider.build())
+                .addOnSuccessListener { authResult ->
+                    Toast.makeText(this, "Bienvenido ${authResult.user?.displayName}", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "Error al iniciar sesión con Twitter: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 

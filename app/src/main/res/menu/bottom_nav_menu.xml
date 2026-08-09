@@ -8,4 +8,8 @@
         android:id="@+id/navigation_favorites"
         android:icon="@drawable/ic_favorites"
         android:title="Favoritos" />
+    <item
+        android:id="@+id/navigation_logout"
+        android:icon="@android:drawable/ic_lock_power_off"
+        android:title="Cerrar Sesión" />
 </menu>

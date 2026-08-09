@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "956272301680-86knt8ot5tcrv85268g81tsdbt22l79b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.carddeck",
+            "certificate_hash": "e0de5ede4798846263c21db3dab7ef378bae07a5"
+          }
+        },
+        {
           "client_id": "956272301680-vcr43k9ntk08cgmgdo2tj2hl9lfkbn6e.apps.googleusercontent.com",
           "client_type": 3
         }
