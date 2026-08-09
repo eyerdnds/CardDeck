@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#101818"
+    tools:context=".DetallesActivity">
+
+    <ImageView
+        android:id="@+id/imgDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/tvNombreDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/imgDetalle"
+        tools:text="Nombre del Vehículo" />
+
+    <TextView
+        android:id="@+id/tvIdDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:textColor="#AEBABA"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvNombreDetalle"
+        tools:text="ID: 1234" />
+
+    <TextView
+        android:id="@+id/tvCategoriaDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#AEBABA"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvIdDetalle"
+        tools:text="Categoría: Deportivos" />
+
+    <Button
+        android:id="@+id/btnFavorito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="Agregar a Favoritos"
+        android:backgroundTint="#FFD700"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

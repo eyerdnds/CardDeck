@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">CardDeck</string>
+    <string name="facebook_app_id">1673671030363844</string>
+    <string name="fb_login_protocol_scheme">fb1673671030363844</string>
+    <string name="facebook_client_token">d5db19023225ca6fc3934979716fbafc</string>
+</resources>

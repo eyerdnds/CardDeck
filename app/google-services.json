@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "956272301680",
+    "project_id": "carddeck-3d4e1",
+    "storage_bucket": "carddeck-3d4e1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:956272301680:android:d2e860fc7c63a1d89686b5",
+        "android_client_info": {
+          "package_name": "com.example.carddeck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "956272301680-49u7fgi65qa6el0cdkqgiakvl147usb3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.carddeck",
+            "certificate_hash": "9f65026cb6625b34a34665bbc7bba0ce05a0d62e"
+          }
+        },
+        {
+          "client_id": "956272301680-vcr43k9ntk08cgmgdo2tj2hl9lfkbn6e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC93yz3zUKkJdcvIhh6blE8vfiUXSV05U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "956272301680-vcr43k9ntk08cgmgdo2tj2hl9lfkbn6e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
